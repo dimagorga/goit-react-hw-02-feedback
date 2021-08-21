@@ -1,0 +1,27 @@
+.options {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  padding: 10px 40px;
+  margin: 0 auto;
+  width: 300px;
+}
+
+.options:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.good {
+  background-color: rgb(60, 247, 60);
+}
+.neutral {
+  background-color: rgb(238, 250, 69);
+}
+.bad {
+  background-color: rgb(250, 69, 69);
+}
+
+.positive {
+  border: 7px solid rgb(60, 247, 60);
+}
