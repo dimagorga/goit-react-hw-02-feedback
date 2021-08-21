@@ -13,15 +13,15 @@
 }
 
 .good {
-  background-color: rgb(60, 247, 60);
+  background-color: rgba(125, 255, 125, 0.658);
 }
 .neutral {
-  background-color: rgb(238, 250, 69);
+  background-color: rgba(238, 250, 69, 0.726);
 }
 .bad {
-  background-color: rgb(250, 69, 69);
+  background-color: rgba(250, 69, 69, 0.692);
 }
 
 .positive {
-  border: 7px solid rgb(60, 247, 60);
+  border: 7px solid rgba(125, 255, 125, 0.658);
 }
