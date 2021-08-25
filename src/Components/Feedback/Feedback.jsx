@@ -12,22 +12,9 @@ class Feedback extends Component {
     bad: 0,
   };
 
-  incrementGood = () => {
-    this.setState((prevState) => ({
-      good: prevState.good + 1,
-    }));
-  };
-
-  incrementNeutral = () => {
-    this.setState((prevState) => ({
-      neutral: prevState.neutral + 1,
-    }));
-  };
-
-  incrementBad = () => {
-    this.setState((prevState) => ({
-      bad: prevState.bad + 1,
-    }));
+  handleClick = (e) => {
+    const value = e.target.textContent;
+    this.setState((prevState) => ({ [value]: prevState[value] + 1 }));
   };
 
   countTotalFeedback = () => {
@@ -46,30 +33,21 @@ class Feedback extends Component {
   };
 
   render() {
+    const key = Object.keys(this.state);
+    const { good, neutral, bad } = this.state;
     return (
       <div className={s.container}>
         <Section title="Please leave feedback">
-          <FeedbackOptions
-            onLeaveFeedback={this.incrementGood}
-            options={"good"}
-          />
-          <FeedbackOptions
-            onLeaveFeedback={this.incrementNeutral}
-            options={"neutral"}
-          />
-          <FeedbackOptions
-            onLeaveFeedback={this.incrementBad}
-            options={"bad"}
-          />
+          <FeedbackOptions onLeaveFeedback={this.handleClick} options={key} />
         </Section>
         <Section title="Statistics">
           {this.countTotalFeedback() === 0 ? (
             <Notification message="No feedback given" />
           ) : (
             <Statistics
-              good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
+              good={good}
+              neutral={neutral}
+              bad={bad}
               totalFeedback={this.countTotalFeedback()}
               positivePercentage={
                 Number(this.countPositiveFeedbackPercentage())
